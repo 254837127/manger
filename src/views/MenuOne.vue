@@ -25,14 +25,16 @@
         </div>
       </div>
     </el-card>
-    <div style="width:100%;display: flex;">
-      <div class="itemDiv">
+    <el-row :gutter="8">
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-user" style="color: #69c0ff;"></i>
             <span>用户</span>
           </div>
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-coin" style="color: rgb(149, 222, 100);"></i>
@@ -40,13 +42,16 @@
           </div>
 
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-reading" style="color: rgb(255, 156, 110);"></i>
             <span>商品</span>
           </div>
-
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-umbrella" style="color: rgb(179, 127, 235);"></i>
@@ -54,6 +59,8 @@
           </div>
 
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-folder" style="color: rgb(255, 214, 102);"></i>
@@ -61,6 +68,8 @@
           </div>
 
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-view" style="color: rgb(92, 219, 211);"></i>
@@ -68,22 +77,26 @@
           </div>
 
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-bell" style="color: rgb(255, 133, 192);"></i>
             <span>标签</span>
           </div>
         </el-card>
+      </el-col>
+      <el-col :xs="12" :sm="6" :md="3" class="itemBottom">
         <el-card shadow="hover" :body-style="{ padding: '15px 0' }" class="bh">
           <div>
             <i class="el-icon-star-off" style="color: rgb(255, 192, 105);"></i>
             <span>配置</span>
           </div>
         </el-card>
-      </div>
-    </div>
-    <div class="threeItem">
-      <div class="itemDiv">
+      </el-col>
+    </el-row>
+    <el-row :gutter="16" class="itemRow">
+      <el-col :sm="24" :md="8" class="itemBottom">
         <el-card class="btCard">
           <div slot="header" class="clearfix">
             <span>卡片名称</span>
@@ -120,8 +133,8 @@
             </el-table>
           </div>
         </el-card>
-      </div>
-      <div class="itemDiv">
+      </el-col>
+      <el-col :sm="24" :md="8" class="itemBottom">
         <el-card class="btCard">
           <div slot="header" class="clearfix">
             <span>最新动态</span>
@@ -136,8 +149,8 @@
             </el-dropdown>
           </div>
           <div class="block">
-            <el-scrollbar style="height:100%;width:100%;">
-              <div style="width:100%;height:300px;">
+            <el-scrollbar style="height:100%;width:100%;padding: 6px 0;">
+              <div>
                 <el-timeline style="height: 300px;text-align: left;" class="timelineDiv">
                   <el-timeline-item v-for="(activity) in activities" :key="activity.id" :icon="activity.icon"
                     :type="activity.type" :color="activity.color" :size="activity.size" :timestamp="activity.timestamp">
@@ -148,8 +161,8 @@
             </el-scrollbar>
           </div>
         </el-card>
-      </div>
-      <div class="itemDiv">
+      </el-col>
+      <el-col :sm="24" :md="8" class="itemBottom">
         <el-card class="btCard">
           <div slot="header" class="clearfix">
             <span>本月目标</span>
@@ -168,8 +181,8 @@
             <span>恭喜, 本月目标已达标!</span>
           </div>
         </el-card>
-      </div>
-    </div>
+      </el-col>
+    </el-row>
     <div style="height: 100px;"></div>
   </div>
 </template>
@@ -270,12 +283,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.context {
-  margin: 0 20px;
 
+.context {
+  margin: 0 15px;
+  .itemBottom{
+    margin-bottom: 15px;
+  }
   .box-card {
     display: flex;
     flex-direction: row;
+    margin-bottom: 15px;
 
     .box_context {
       // width: 100%;
@@ -403,17 +420,7 @@ export default {
 
   }
 
-  .threeItem {
-    width: 100%;
-    margin-left: -7.5px;
-    margin-right: -7.5px;
-    display: flex;
-    flex-direction: row;
-    // justify-content: space-between;
-    line-height: 20px;
-
-    .itemDiv {
-      width: 33.3333333%;
+    .itemRow {
       height: 350px;
 
       .btCard {
@@ -432,7 +439,6 @@ export default {
         }
 
         .block {
-          padding: 10px 0;
           display: flex;
           height: 300px;
 
@@ -446,7 +452,7 @@ export default {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          height: 250px;
+          height: 300px;
         }
       }
     }
@@ -477,6 +483,6 @@ export default {
       color: #1890ff;
       border: 1px solid #91d5ff;
     }
-  }
+  // }
 }
 </style>
