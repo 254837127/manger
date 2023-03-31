@@ -17,7 +17,9 @@ export default new Vuex.Store({
     collapse: false,
     currentMenuIndex: '',
     crumbList: [],
-    tabs: []
+    tabs: [],
+    mainTableList: [],
+    mainProjectTableList: []
   },
   getters: {},
   mutations: {
@@ -35,6 +37,12 @@ export default new Vuex.Store({
     },
     setTabs(state, payload) {
       state.tabs = payload
+    },
+    setMainTableList(state, payload) {
+      state.mainTableList = payload
+    },
+    setMainProjectTableList(state, payload) {
+      state.mainProjectTableList = payload
     }
   },
   actions: {

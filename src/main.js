@@ -5,6 +5,7 @@ import store from './store'
 import '@/assets/global.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import '@/mock/mockServe'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
